@@ -9,14 +9,44 @@
     <div class="container mb-3">
 
       <div class="Bootstrap">
-        <button type="button" class="btn btn-outline-danger">교육 페이지(초급)</button> &nbsp;
-        <button type="button" class="btn btn-outline-warning">교육 페이지(중급)</button> &nbsp;
-        <button type="button" class="btn btn-outline-success">교육 페이지(고급)</button> &nbsp;
-        <button type="button" class="btn btn-outline-info">공개키 탑재 가이드</button> &nbsp;
-        <button type="button" class="btn btn-outline-dark">커뮤니티</button> &nbsp;
+        <!-- Need to adjust size -->
+        <button type="button" class="btn btn-outline-danger" onclick="moveBasic(); return false;">교육 페이지(초급)</button> &nbsp;
+        <button type="button" class="btn btn-outline-warning" onclick="moveMid(); return false;">교육 페이지(중급)</button> &nbsp;
+        <button type="button" class="btn btn-outline-success" onclick="moveAdv(); return false;">교육 페이지(고급)</button> &nbsp;
+        <button type="button" class="btn btn-outline-info" onclick="moveAsy(); return false;">공개키 탑재 가이드</button> &nbsp;
+        <button type="button" class="btn btn-outline-dark" onclick="moveCom(); return false;">커뮤니티</button> &nbsp;
         <!-- <button type="button" class="btn btn-outline-primary">Junior</button>
         <button type="button" class="btn btn-outline-secondary">Senior</button> -->
       </div>
+
+      <br/>
+
+      <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="/images/princess.png" class="d-block w-50" alt="양자내성암호 이용 활성화를 위한 과기정통부 산하 어쩌구">
+          </div>
+        </div>
+      </div>
+
     </div>
+
+  <script type="text/javascript">
+    function moveBasic() {
+      location.href="/eduBasic";
+    }
+    function moveMid() {
+      location.href="/eduMid";
+    }
+    function moveAdv() {
+      location.href="/eduAdv";
+    }
+    function moveAsy() {
+      location.href="/asyGuide";
+    }
+    function moveCom() {
+      location.href="/community";
+    }
+  </script>
   </body>
 </html>

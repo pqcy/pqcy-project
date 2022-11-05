@@ -1,3 +1,4 @@
-#navbarSupportedContent li.nav-item {
-    float: right;
+.about {
+    display: flex;
+    justify-content: space-between;
 }
