@@ -11,7 +11,9 @@ app.get('/', (req, res) => {
 */
 
 app.set('view engine', 'ejs');
-app.use(express.static(__dirname + '/public'));
+//app.use('/process', express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '../public'));
+app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(methodOverride('_method'));
