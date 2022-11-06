@@ -18,7 +18,7 @@ router.get('/eduMid', function(req, res){
 });
 
 router.get('/eduAdv', function(req, res){
-  res.render('home/eduAdv');
+  res.render('home/eduAdv');  
 });
 
 router.get('/asyGuide', function(req, res){
