@@ -2,34 +2,61 @@
 <html>
   <head>
     <%-include('../partials/head.ejs')%>
+    <style>
+      content{
+        position: absolute; top:0; left: 0;
+        width: 100%;
+        height: 100%;
+      }
+      .card-img-top {
+        height: 15rem;
+        object-fit: cover;
+      }
+    </style>
   </head>
   <body>
     <%-include('../partials/nav.ejs')%>
 
-    <div class="container mb-3">
+    <div class="text-center mb-3">
 
-      <div class="Bootstrap">
+      <div class="Bootstrap" margin: auto;>
         <br/><br/><br/><br/>
         <!-- Need to adjust size -->
-        <button type="button" class="btn btn-outline-danger" onclick="moveBasic(); return false;">교육 페이지(초급)</button> &nbsp;
-        <button type="button" class="btn btn-outline-warning" onclick="moveMid(); return false;">교육 페이지(중급)</button> &nbsp;
-        <button type="button" class="btn btn-outline-success" onclick="moveAdv(); return false;">교육 페이지(고급)</button> &nbsp;
-        <button type="button" class="btn btn-outline-info" onclick="moveAsy(); return false;">공개키 탑재 가이드</button> &nbsp;
-        <button type="button" class="btn btn-outline-dark" onclick="moveCom(); return false;">커뮤니티</button> &nbsp;
+        <button type="button" class="btn btn-outline-danger" onclick="moveBasic(); return false;">교육 페이지(초급)</button> &nbsp;&nbsp;
+        <button type="button" class="btn btn-outline-warning" onclick="moveMid(); return false;">교육 페이지(중급)</button> &nbsp;&nbsp;
+        <button type="button" class="btn btn-outline-success" onclick="moveAdv(); return false;">교육 페이지(고급)</button> &nbsp;&nbsp;
+        <button type="button" class="btn btn-outline-info" onclick="moveAsy(); return false;">공개키 탑재 가이드</button> &nbsp;&nbsp;
+        <button type="button" class="btn btn-outline-dark" onclick="moveCom(); return false;">커뮤니티</button>
         <!-- <button type="button" class="btn btn-outline-primary">Junior</button>
         <button type="button" class="btn btn-outline-secondary">Senior</button> -->
       </div>
 
       <br/>
 
-      <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="/images/princess.png" class="d-block w-50" alt="양자내성암호 이용 활성화를 위한 과기정통부 산하 어쩌구">
+      <div class="card bg-light">
+        <div class="card-body">
+          <b>양자내성암호 이용 활성화를 위한 과기정통부 산하 KISA, KITRI, NSHC에서 후원하는 교육 사이트입니다.</b><br/>
+        <!-- </div> -->
+        <br/>
+        <img src="/images/kitri-logo.jpg" width="400" height="70">
+        <img src="/images/nshc-logo.png" width="200" height="40">
+
+        <br/><br/><br/>
+  
+        <div class="card justify-content-center" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">EVENT</h5>
+            <h6 class="card-subtitle mb-2 text-muted">퀴즈를 풀면 스타벅스 기프티콘이?</h6>
+            <img src="/images/starbucks.jpg" width="80" height="80"><br/>
+            <!-- <p class="card-text">Content</p> -->
+            <!-- Quiz link add -->
+            <a href="/eduBasic" class="card-link">Quiz 바로가기</a>
+            <!-- <a href="#" class="card-link">Another link</a> -->
           </div>
         </div>
+        <br/>
       </div>
-
+      </div>
     </div>
 
 <!-- Footer -->
