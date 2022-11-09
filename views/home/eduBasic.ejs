@@ -7,9 +7,9 @@
     <%-include('../partials/nav.ejs')%>
     <style type="text/css">
       .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
-            border-top: #FFFFFF;
+            /*border-top: #FFFFFF;
             border-right: #FFFFFF;
-            border-left: #FFFFFF;
+            border-left: #FFFFFF;*/
             border-bottom: 3px solid #3333CC;
             color: #3333CC;
       }
@@ -17,53 +17,72 @@
         color: #333333;
         font-weight: bold;
       }
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
+      footer {
+        width: 100%;
+        height: 56px;
+        position: absolute; 
+        bottom: 0;
+        left: 0;
+      }
     </style>
     <br/><br/><br/><br/>
     
     <nav>
       <ul class="nav justify-content-center nav-tabs nav-fill" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
-          <a class="navber-brand" href="#">
+          <a class="navber-brand" href="/eduBasic">
             <img src="/images/banner/banner-main.png" width="60" height="60">
           </a>
           <a class="nav-link active" data-toggle="tab" aria-current="page" href="#">메인</a>
         </li>
-        <li class="nav-item" role="presentation">
-          <a class="navber-brand" href="#">
+
+        <li class="nav-item dropdown" role="presentation">
+          <a class="navber-brand" href="/goPqc">
             <img src="/images/banner/banner-pqc.png" width="60" height="60">
           </a>
-          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">PQC란?</a>
-          <ul class="dropdown-menu">
+          <a class="nav-link" data-toggle="tab" onclick="goPqc();">PQC란?</a>
+          <!-- <ul class="dropdown-menu" style="width: 185px;">
             <li><a class="dropdown-item" href="#">양자컴퓨터란?</a></li>
             <li><a class="dropdown-item" href="#">양자통신이란?</a></li>
             <li><a class="dropdown-item" href="#">양자내성암호란?</a></li>
-            <!-- <li><hr class="dropdown-divider"></li> -->
+            <li><hr class="dropdown-divider"></li>
           </ul>
+          -->
         </li>
+
         <li class="nav-item" role="presentation">
           <a class="navber-brand" href="#">
             <img src="/images/banner/banner-algo.png" width="60" height="60">
           </a>
-          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">NIST 선정 PQC 알고리즘</a>
-          <ul class="dropdown-menu">
+          <a class="nav-link" data-toggle="tab" href="#">NIST 선정 PQC 알고리즘</a>
+          <!-- <ul class="dropdown-menu" style="width: 295px;">
             <li><a class="dropdown-item" href="#">격자 기반</a></li>
             <li><a class="dropdown-item" href="#">해시 기반</a></li>
             <li><a class="dropdown-item" href="#">코드 기반</a></li>
-            <!-- <li><hr class="dropdown-divider"></li> -->
+            <li><hr class="dropdown-divider"></li>
           </ul>
+          -->
         </li>
+
         <li class="nav-item" role="presentation">
           <a class="navber-brand" href="#">
             <img src="/images/banner/banner-test.png" width="60" height="60">
           </a>
           <a class="nav-link" data-toggle="tab" href="#">기존 공개키 알고리즘 테스트</a>
         </li>
+
         <li class="nav-item" role="presentation">
           <a class="navber-brand" href="#">
             <img src="/images/banner/banner-hide.png" width="60" height="60">
           </a>
           <a class="nav-link" data-toggle="tab" href="#">선생님 몰래 너만 와</a>
         </li>
+
         <li class="nav-item" role="presentation">
           <img src="/images/banner/banner-update.png" width="60" height="60">
           <a class="nav-link disabled" data-toggle="tab" href="#" tabindex="-1" aria-disabled="true">업데이트 예정</a>
@@ -72,9 +91,25 @@
     </nav>
 
     <br/>
-    &nbsp; 교육 페이지(초급) 입니다.<br/>
-    <a class="nav-link" href="/quiz">QUIZ</a>
+    &nbsp; 학생들을 위한 초급 교육 페이지입니다.<br/><br/>
+    <button class="nav-link" onclick="quiz();">QUIZ</button>
 
+<!-- Footer --> 
+<footer class="text-center text-lg-start bg-light text-muted">
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+    Copyright2022.BestOftheBest11thPQCY All rights reserved.
+  </div>
+</footer>
+
+<script>
+  function quiz() {
+    location.href="/quiz";
+  }
+  function goPqc() {
+    location.href="/goPqc";
+  }
+</script>
 
   </body>
 </html>
