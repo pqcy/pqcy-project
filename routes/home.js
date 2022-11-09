@@ -29,5 +29,13 @@ router.get('/community', function(req, res){
   res.render('home/community');
 });
 
+router.get('/quiz', function(req, res){
+  res.render('home/quiz');
+});
+
+router.get('/goPqc', function(req, res){
+  res.render('home/goPqc');
+});
+
 module.exports = router;
 
