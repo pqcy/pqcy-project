@@ -1,0 +1,18 @@
+divide and conquer
+<%# This method is used in McEliece Cryptosystems to overcome the drawbacks in terms of size of the encrypted key and transmission rate.%>
+Toom-Cook multiplication은 큰 정수의 곱을 빠르게 계산가능하게 해주는 알고리즘이다
+두 개의 큰 정수 a 와 b 가 주어지면 Toom–Cook multiplication에서는 a 와 b 를 각각 길이가 l 인 k 개의 부분으로 나눕니다. k 가 커짐 에 따라 많은 곱셈 하위 연산을 결합 하여 알고리즘 의 전체 계산 복잡성 을 줄일 수 있습니다.
+In a typical large integer implementation, each integer is represented as a sequence of digits in positional notation, with the base or radix set to some (typically large) value b; for this example we use b = 10000, so that each digit corresponds to a group of four decimal digits (in a computer implementation, b would typically be a power of 2 instead)
+<br>곱셈 하위 연산은 다시 Toom-Cook multiplication 등을 사용하여 재귀적으로 계산할 수 있습니다.
+크기가 큰 정수에 대해서 Karatsuba multiplication보다 연산속도가 빠르지만 매우 크기가 큰 수에서는 Schönhage–Strassen multiplication 이 훨씬 빠르다.
+Toom-Cook 3-Way Multiplication 은 k = 3일 때를 의미한다.
+보통 Toom-Cook 3-Way Multiplication이 상대적으로 간단하기 때문에 이를 예로 들어보자.
+a = 301,293,203
+b = 102,939,768
+ab = 3,101,505,241,6796,904
+
+k = 3 으로 정했으니 여기서는 l의 단위를 1000 단위라고 합시다.
+a는 301, 293, 203 으로
+b는 102, 939, 768 로 3개의 부분으로 나눌 수 있습니다.
+a(x) = 301x^2 + 
+
