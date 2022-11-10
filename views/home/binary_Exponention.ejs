@@ -35,13 +35,14 @@ details[open] > summary ~ * { animation:reveal 0.5s;}
           padding: 0;
           height: 100%;
         }
-        footer {
-          width: 100%;
-          height: 56px;
-          position: absolute; 
-          bottom: 0;
-          left: 0;
-        }
+       
+      footer {
+        width: 100%;
+        height: 56px;
+        position: relative; 
+        /*transform : translateY(-100%); -> footer를 footer height 만큼 올려준다*/ 
+      }
+     
       </style>
     <%-include('../partials/head.ejs')%>
     <%# Using highlight.js %>
@@ -56,7 +57,8 @@ details[open] > summary ~ * { animation:reveal 0.5s;}
   </head>
   <body>
     <%-include('../partials/nav.ejs')%>
-    <img src="/images/L2R.PNG" width="700" height="350">
+    <br><br><br><br><br><br>
+    <img src="/images/algorithm/L2R.PNG" width="650" height="400">
     <details>
         <summary>python code</summary>
     
@@ -74,7 +76,7 @@ def L2R(a,n):
     </code></pre>
 
     </details>
-    <img src="/images/R2L.PNG" width="700" height="350">
+    <img src="/images/algorithm/R2L.PNG" width="650" height="400">
     <details>
         <summary>python code</summary>
     <pre><code class="language-python">
@@ -91,7 +93,7 @@ def R2L(a,n):
     return A
     </code></pre>
     </details>
-    <img src="/images/MnS.PNG" width="700" height="350">
+    <img src="/images/algorithm/MnS.PNG" width="700" height="500">
     <details>
         <summary>python code</summary>
     <pre><code class="language-python">
@@ -119,7 +121,10 @@ def MnS(a,n):
     <div class="sage">
         <script type="text/x-sage"></script>
       </div>
+      <br><br><br><br><br>
       <!-- Footer --> 
+     
+
 <footer class="text-center text-lg-start bg-light text-muted">
     <!-- Copyright -->
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">

@@ -3,17 +3,6 @@
   <head>
     <%-include('../partials/head.ejs')%>
     <style type="text/css">
-      .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
-            /*border-top: #FFFFFF;
-            border-right: #FFFFFF;
-            border-left: #FFFFFF;*/
-            border-bottom: 3px solid #3333CC;
-            color: #3333CC;
-      }
-      .nav-tabs .nav-link {
-        color: #333333;
-        font-weight: bold;
-      }
       html, body {
         margin: 0;
         padding: 0;
@@ -26,21 +15,86 @@
         bottom: 0;
         left: 0;
       }
+      .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+            border-bottom: 3px solid #3333CC;
+            color: #3333CC;
+      }
+      .nav-tabs .nav-link {
+        color: #333333;
+        font-weight: bold;
+      }
+      .list-group-item {
+        color: black;
+        /*background-color: #FFCCCC;*/
+        background-color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .list-group {
+        width: 90%;
+        display: flex;
+      }
+      section {
+        width: 20%;
+        background-color: #ffffff;
+        margin: 5px;
+        box-sizing: border-box;
+        display: flex;
+      }
+      aside {
+        width: 65%;
+        height: 500px;
+        float: right;
+        /*padding: 50px;
+        margin: 10px;*/
+        border-radius: 30px;
+      }
+      .carousel-inner > .carousel-item > img {
+        width: 80%;
+        height: 500px;
+      }
+      main {
+        display: flex;
+      }
+      .carousel-control-prev-icon { 
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%29000' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E"); 
+      }
+
+      .carousel-control-next-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%29000' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E"); 
+      }
+      .carousel .carousel-indicators li { background-color: black; }
+      .carousel .carousel-indicators li.active { background-color: black; }
     </style>
   </head>
   <body>
     <%-include('../partials/nav.ejs')%>
     <br><br><br>
-    <button type="button" onclick="moveBin()">Binary Exponentiation</button>
-    <button type="button" onclick="moveRSA()">Multiplication</button>
-    <button type="button">Lattice</button>
+    <main>
+      <section>
+        <div class="list-group" id="list-tab" role="tablist">
+          <!-- href="#" --><a class="list-group-item list-group-item-action bg-light text-dark" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Galois Fields</a>
+          <a class="list-group-item list-group-item-action active bg-light text-dark" id="list-home-list" href="#list-profile" onclick="moveBin()" data-toggle="list" role="tab" aria-controls="home">Binary Exponentiation</a>
+          <a class="list-group-item list-group-item-action bg-light text-dark" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Multiplication</a>
+          <a class="list-group-item list-group-item-action bg-light text-dark" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Lattice</a>
+          <!-- <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Settings</a> -->
+        </div>
+      </section>
+  
+  </main>
     
+    
+  <!-- Footer --> 
+<footer class="text-center text-lg-start bg-light text-muted">
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+    Copyright2022.BestOftheBest11thPQCY All rights reserved.
+  </div>
+</footer>  
   <script type="text/javascript">
     function moveBin() {
       location.href="/Binary_Exponention";
-    }
-    function moveRSA() {
-      location.href="/RSA";
     }
   </script>
   </body>

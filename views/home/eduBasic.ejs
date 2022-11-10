@@ -73,7 +73,7 @@
           <a class="navber-brand" href="#">
             <img src="/images/banner/banner-test.png" width="60" height="60">
           </a>
-          <a class="nav-link" data-toggle="tab" href="#">기존 공개키 알고리즘 테스트</a>
+          <a class="nav-link" data-toggle="tab" onclick="publictest()">기존 공개키 알고리즘 테스트</a>
         </li>
 
         <li class="nav-item" role="presentation">
@@ -85,7 +85,7 @@
 
         <li class="nav-item" role="presentation">
           <img src="/images/banner/banner-update.png" width="60" height="60">
-          <a class="nav-link disabled" data-toggle="tab" href="#" tabindex="-1" aria-disabled="true">업데이트 예정</a>
+          <a class="nav-link disabled" data-toggle="tab" tabindex="-1" aria-disabled="true">업데이트 예정</a>
         </li>
       </ul>
     </nav>
@@ -108,6 +108,9 @@
   }
   function goPqc() {
     location.href="/goPqc";
+  }
+  function publictest() {
+    location.href="/publictest";
   }
 </script>
 
