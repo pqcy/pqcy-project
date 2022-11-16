@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <%-include('../partials/head.ejs')%>
+</head>
+
+<body>
+  <%-include('../partials/nav.ejs')%>
+    <style type="text/css">
+      .nav-tabs .nav-item.show .nav-link,
+      .nav-tabs .nav-link.active {
+        border-bottom: 3px solid #3333CC;
+        color: #3333CC;
+      }
+
+      .nav-tabs .nav-link {
+        color: #333333;
+        font-weight: bold;
+      }
+
+      .list-group-item {
+        color: black;
+        /*background-color: #FFCCCC;*/
+        background-color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .list-group {
+        width: 90%;
+        display: flex;
+      }
+
+      section {
+        width: 20%;
+        background-color: #ffffff;
+        margin: 5px;
+        box-sizing: border-box;
+        display: flex;
+      }
+
+      aside {
+        width: 65%;
+        height: 500px;
+        float: right;
+        /*padding: 50px;
+        margin: 10px;*/
+        border-radius: 30px;
+      }
+
+      .carousel-inner>.carousel-item>img {
+        width: 80%;
+        height: 500px;
+      }
+
+      main {
+        display: flex;
+      }
+
+      .carousel-control-prev-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%29000' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+      }
+
+      .carousel-control-next-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%29000' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+      }
+
+      .carousel .carousel-indicators li {
+        background-color: black;
+      }
+
+      .carousel .carousel-indicators li.active {
+        background-color: black;
+      }
+
+      div.row {
+        width: 100%;
+        height: 500px;
+      }
+
+      div.col>p {
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      img.d-block {
+        height: 500px;
+      }
+    </style>
+    <br /><br /><br /><br />
+
+    <nav>
+      <ul class="nav justify-content-center nav-tabs nav-fill" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <a class="navber-brand" href="/eduBasic">
+            <img src="/images/banner/banner-main.png" width="60" height="60">
+          </a>
+          <a class="nav-link" data-toggle="tab" onclick="location.href='/eduBasic'">메인</a>
+        </li>
+
+        <li class="nav-item dropdown" role="presentation">
+          <a class="navber-brand" href="/goPqc">
+            <img src="/images/banner/banner-pqc.png" width="60" height="60">
+          </a>
+          <a class="nav-link" data-toggle="tab" aria-current="page" onclick="location.href='/goPqc'">PQC란?</a>
+        </li>
+
+        <li class="nav-item" role="presentation">
+          <a class="navber-brand" href="#">
+            <img src="/images/banner/banner-algo.png" width="60" height="60">
+          </a>
+          <a class="nav-link active" data-toggle="tab" onclick="location.href='/nist'">NIST 선정 PQC 알고리즘</a>
+        </li>
+
+        <li class="nav-item" role="presentation">
+          <a class="navber-brand" href="#">
+            <img src="/images/banner/banner-test.png" width="60" height="60">
+          </a>
+          <a class="nav-link" data-toggle="tab" nclick="location.href='/nist'">기존 공개키 알고리즘 테스트</a>
+        </li>
+
+        <li class="nav-item" role="presentation">
+          <a class="navber-brand" href="#">
+            <img src="/images/banner/banner-hide.png" width="60" height="60">
+          </a>
+          <a class="nav-link" data-toggle="tab" href="#">선생님 몰래 너만 와</a>
+        </li>
+
+        <li class="nav-item" role="presentation">
+          <img src="/images/banner/banner-update.png" width="60" height="60">
+          <a class="nav-link disabled" data-toggle="tab" href="" tabindex="-1" aria-disabled="true">업데이트 예정</a>
+        </li>
+      </ul>
+    </nav>
+
+    <br />
+    <main>
+      <section>
+        <div class="list-group" id="list-tab" role="tablist">
+          <!-- href="#" -->
+          <a class="list-group-item list-group-item-action active bg-light text-dark" id="list-home-list"
+            data-toggle="list" href="#list-home" role="tab" aria-controls="home">NIST PQC 2022 선정 알고리즘</a>
+          <!-- <a class="list-group-item list-group-item-action bg-light text-dark" id="list-profile-list" data-toggle="list"
+            href="#list-profile" role="tab" aria-controls="profile">양자 암호란?</a>
+          <a class="list-group-item list-group-item-action bg-light text-dark" id="list-messages-list"
+            data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">양자내성암호란?</a> -->
+          <!-- <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Settings</a> -->
+        </div>
+      </section>
+
+      <aside>
+        <div class="tab-content" id="nav-tabContent">
+
+          <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+            <div id="demo" class="carousel slide carousel-fade" data-ride="carousel">
+              <div class="carousel-inner container">
+                <!-- 슬라이드 쇼 -->
+                <!-- 양자컴퓨터란? -->
+                <div class="carousel-item active">
+                  <div class="row">
+                    <div class="col">
+                      <p>
+                        NIST PQC 2022 선정 알고리즘<br><br>
+                        PKE(Public Key Encrytion)/KEM(Key Encapsulation Mechanism) 알고리즘으로는 CRYSTALS-KYBER,
+                        Digital Signature 알고리즘으로는 CRYSTALS-DILITHIUM, FALCON, SPHINCS+ 이 선정되었습니다.
+                      </p>
+                    </div>
+                    <div class="col">
+                      <img class="d-block w-100" src="/images/nist/1slide1.png" alt="First slide">
+                    </div>
+                  </div>
+
+                <!-- </div>
+                <div class="carousel-item">
+                  <div class="row">
+                    <div class="col">
+                      <p>
+                       
+                      </p>
+                    </div>
+                    <div class="col">
+                      <img class="d-block w-100" src="/images/pqc/1slide2.png" alt="First slide">
+                    </div>
+                  </div>
+
+                </div>
+                <div class="carousel-item">
+                  <div class="row">
+                    <div class="col">
+                      <p>
+                       
+                      </p>
+                    </div>
+                    <div class="col">
+                      <img class="d-block w-100" src="/images/pqc/1slide3.png" alt="First slide">
+                    </div>
+                  </div>
+
+                </div> -->
+
+                <!-- 왼쪽 오른쪽 화살표 버튼 -->
+                <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                </a>
+                <a class="carousel-control-next" href="#demo" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                </a>
+
+                <!-- 인디케이터 -->
+                <ul class="carousel-indicators">
+                  <li data-target="#demo" data-slide-to="0" class="active"></li>
+                  <li data-target="#demo" data-slide-to="1"></li>
+                  <li data-target="#demo" data-slide-to="2"></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- 양자암호란? -->
+          <!-- <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+            <div id="demo2" class="carousel slide carousel-fade" data-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+
+                  <div class="row">
+                    <div class="col">
+                      <p>
+                       
+                      </p>
+                    </div>
+                    <div class="col">
+                      <img class="d-block w-100" src="/images/pqc/2slide1.png" alt="First slide">
+                    </div>
+                  </div>
+                </div> -->
+
+                <!-- <div class="carousel-item">
+                  <div class="row">
+                    <div class="col">
+                      <p>
+
+                      </p>
+                    </div>
+                    <div class="col">
+                      <img class="d-block w-100" src="/images/pqc/1slide1.png" alt="First slide">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="carousel-item">
+                  <div class="row">
+                    <div class="col">
+                      <p>
+
+                      </p>
+                    </div>
+                    <div class="col">
+                      <img class="d-block w-100" src="/images/pqc/1slide1.png" alt="First slide">
+                    </div>
+                  </div>
+                </div> -->
+
+                <!-- 왼쪽 오른쪽 화살표 버튼 -->
+                <!-- <a class="carousel-control-prev" href="#demo2" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                </a>
+                <a class="carousel-control-next" href="#demo2" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                </a> -->
+
+                <!-- 인디케이터 -->
+                <!-- <ul class="carousel-indicators">
+                  <li data-target="#demo2" data-slide-to="0" class="active"></li>
+                  <li data-target="#demo2" data-slide-to="1"></li>
+                  <li data-target="#demo2" data-slide-to="2"></li>
+                </ul>
+              </div>
+            </div>
+          </div> -->
+
+          <!-- 양자내성암호란? -->
+          <!-- <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
+            <div id="demo3" class="carousel slide carousel-fade" data-ride="carousel">
+              <div class="carousel-inner">
+
+                <div class="carousel-item active">
+                  <div class="row">
+                    <div class="col">
+                      <p>
+                       
+                      </p>
+                    </div>
+                    <div class="col">
+                      <img class="d-block w-100" src="/images/pqc/3slide1.png" alt="First slide">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="carousel-item">
+                  <div class="row">
+                    <div class="col">
+                      <p>
+                        
+                      </p>
+                    </div>
+                    <div class="col">
+                      <img class="d-block w-100" src="/images/pqc/3slide2.png" alt="First slide">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="carousel-item">
+                  <div class="row">
+                    <div class="col">
+                      <p>
+                       
+                      </p>
+                    </div>
+                    <div class="col">
+                      <img class="d-block w-100" src="/images/pqc/3slide3.png" alt="First slide">
+                    </div>
+                  </div>
+                </div> --> 
+
+                <!-- 왼쪽 오른쪽 화살표 버튼 -->
+                <!-- <a class="carousel-control-prev" href="#demo3" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                </a>
+                <a class="carousel-control-next" href="#demo3" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                </a> -->
+
+                <!-- 인디케이터 -->
+                <!-- <ul class="carousel-indicators">
+                  <li data-target="#demo3" data-slide-to="0" class="active"></li>
+                  <li data-target="#demo3" data-slide-to="1"></li>
+                  <li data-target="#demo3" data-slide-to="2"></li>
+                </ul>
+              </div>
+            </div>
+          </div> -->
+
+        </div>
+      </aside>
+
+    </main>
+
+    <br />
+    <%-include('../partials/footer.ejs')%>
+
+</body>
+
+</html>

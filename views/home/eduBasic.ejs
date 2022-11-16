@@ -22,13 +22,7 @@
         padding: 0;
         height: 100%;
       }
-      footer {
-        width: 100%;
-        height: 56px;
-        position: absolute; 
-        bottom: 0;
-        left: 0;
-      }
+     
     </style>
     <br/><br/><br/><br/>
     
@@ -38,35 +32,21 @@
           <a class="navber-brand" href="/eduBasic">
             <img src="/images/banner/banner-main.png" width="60" height="60">
           </a>
-          <a class="nav-link active" data-toggle="tab" aria-current="page" href="#">메인</a>
+          <a class="nav-link active" data-toggle="tab" onclick="location.href='/eduBasic'">메인</a>
         </li>
 
         <li class="nav-item dropdown" role="presentation">
           <a class="navber-brand" href="/goPqc">
             <img src="/images/banner/banner-pqc.png" width="60" height="60">
           </a>
-          <a class="nav-link" data-toggle="tab" onclick="goPqc();">PQC란?</a>
-          <!-- <ul class="dropdown-menu" style="width: 185px;">
-            <li><a class="dropdown-item" href="#">양자컴퓨터란?</a></li>
-            <li><a class="dropdown-item" href="#">양자통신이란?</a></li>
-            <li><a class="dropdown-item" href="#">양자내성암호란?</a></li>
-            <li><hr class="dropdown-divider"></li>
-          </ul>
-          -->
+          <a class="nav-link" data-toggle="tab" aria-current="page" onclick="location.href='/goPqc'">PQC란?</a>
         </li>
 
         <li class="nav-item" role="presentation">
           <a class="navber-brand" href="#">
             <img src="/images/banner/banner-algo.png" width="60" height="60">
           </a>
-          <a class="nav-link" data-toggle="tab" href="#">NIST 선정 PQC 알고리즘</a>
-          <!-- <ul class="dropdown-menu" style="width: 295px;">
-            <li><a class="dropdown-item" href="#">격자 기반</a></li>
-            <li><a class="dropdown-item" href="#">해시 기반</a></li>
-            <li><a class="dropdown-item" href="#">코드 기반</a></li>
-            <li><hr class="dropdown-divider"></li>
-          </ul>
-          -->
+          <a class="nav-link" data-toggle="tab" onclick="location.href='nist'">NIST 선정 PQC 알고리즘</a>
         </li>
 
         <li class="nav-item" role="presentation">
@@ -85,31 +65,30 @@
 
         <li class="nav-item" role="presentation">
           <img src="/images/banner/banner-update.png" width="60" height="60">
-          <a class="nav-link disabled" data-toggle="tab" href="#" tabindex="-1" aria-disabled="true">업데이트 예정</a>
+          <a class="nav-link disabled" data-toggle="tab" href="" tabindex="-1" aria-disabled="true">업데이트 예정</a>
         </li>
       </ul>
     </nav>
 
     <br/>
-    &nbsp; 학생들을 위한 초급 교육 페이지입니다.<br/><br/>
-    <button class="nav-link" onclick="quiz();">QUIZ</button>
-
-<!-- Footer --> 
-<footer class="text-center text-lg-start bg-light text-muted">
-  <!-- Copyright -->
-  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
-    Copyright2022.BestOftheBest11thPQCY All rights reserved.
-  </div>
-</footer>
-
-<script>
-  function quiz() {
-    location.href="/quiz";
-  }
-  function goPqc() {
-    location.href="/goPqc";
-  }
-</script>
+    <div class="container">
+      <p class="text-center">학생들을 위한 초급 교육 페이지입니다.</p>
+      <!-- <button class="nav-link" onclick="quiz();">QUIZ</button> -->
+      <div class="card justify-content-center" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">EVENT</h5>
+          <h6 class="card-subtitle mb-2 text-muted">퀴즈를 풀면 스타벅스 기프티콘이?</h6>
+          <img src="/images/starbucks.jpg" width="80" height="80"><br/>
+          <!-- <p class="card-text">Content</p> -->
+          <!-- Quiz link add -->
+          <a href="/quiz" class="card-link">Quiz 바로가기</a>
+          <!-- <a href="#" class="card-link">Another link</a> -->
+        </div>
+      </div>
+    </div>
+    
+    <%-include('../partials/footer.ejs')%>
 
   </body>
+
 </html>

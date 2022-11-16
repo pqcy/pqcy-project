@@ -1,52 +1,73 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <%-include('../partials/head.ejs')%>
-      </head>
+
+<head>
+  <%-include('../partials/head.ejs')%>
+  <script src=""></script>
+</head>
+
 <body>
-
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" id="quiz">
-        <div class="modal-content">
-          <div class="modal-header" id="question">
-            <h5 class="modal-title">예시) Q. ARP Spoofing을 막는 방법으로 틀린 것은?</h5>
-          </div>
-          <div class="modal-body">
-            <input type='radio' id="a" name="answer" class="answer" />
-            <label id="a_text" for="a">보기 예시 1</label>
-            <br/>
-            <input type='radio' id="b" name="answer" class="answer" />
-            <label id="b_text" for="b">보기 예시 2</label>
-            <br/>
-            <input type='radio' id="c" name="answer" class="answer" />
-            <label id="c_text" for="c">보기 예시 3</label>
-            <br/>
-            <input type='radio' id="d" name="answer" class="answer" />
-            <label id="d_text" for="d">보기 예시 4</label>
-            <br/><br/>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-light" onclick="close();">Close</button>
-            <button type="button" id="next" class="btn btn-info">NEXT</button>
-          </div>
-        </div>
+  <form action="http://localhost:3000/quiz" method="get">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" id="quiz">
+    <div class="modal-content">
+      <div class="modal-header" id="question">
+        <h5 class="modal-title">
+          문제1. 1 + 1 = ?
+        </h5>
+      </div>
+      <div class="modal-body">
+        <input type='radio' id="a" name="answer" class="answer" value="1" checked/>
+        <label id="a_text" for="a" >
+          1
+        </label>
+        <br />
+        <input type='radio' id="b" name="answer" class="answer" value="2" />
+        <label id="b_text" for="b">
+          2
+        </label>
+        <br />
+        <input type='radio' id="c" name="answer" class="answer" value="3" />
+        <label id="c_text" for="c">
+          3
+        </label>
+        <br />
+        <input type='radio' id="d" name="answer" class="answer" value="4" />
+        <label id="d_text" for="d">
+          4
+        </label>
+        <br /><br />
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="close" class="btn btn-light">Close</button>
+        <button type="submit" id="next" class="btn btn-info">NEXT</button>
+      </div>
     </div>
+  </div>
+</form>
+  <script>
 
-<!-- Footer -->
-<footer class="text-center text-lg-start bg-light text-muted">
-    <!-- Copyright -->
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
-      Copyright2022.BestOftheBest11thPQCY All rights reserved.
-    </div>
-</footer>
+    $('#close').on('click', () => {
+      location.href = "eduBasic";
+    });
 
-<script>
-    function close() {
-        location.href="/eduBasic";
-    }
-    function nextPage() {
-      // function
-    }
-</script>
-<!-- <script src="quizList.js"></script> -->
+    // let answer = undefined;
+    // $('#next').on('click', );
+    // $('#next').on('click', async () => {const bodyParser = require('body-parser');
+    //   answer = $('input[name=answer]:checked').val();
+    //   if (answer === undefined) {
+    //     alert("정답을 골라주세요.");
+    //     return;
+    //   }
+    //   try {
+    //       let geturl = `http://localhost:3000/quiz?answer=${answer}`;
+    //       const result = await axios.get(geturl);
+    //     } catch (error) {
+    //       console.error(error);
+    //     }
+    // })();
+
+  </script>
+  <%-include('../partials/footer.ejs')%>
 </body>
+
 </html>
