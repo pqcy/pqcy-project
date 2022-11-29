@@ -36,12 +36,5 @@ router.get('/quiz', function(req, res){
 router.get('/goPqc', function(req, res){
   res.render('home/goPqc');
 });
-router.get('/binary_Exponention', function(req, res){
-  res.render('home/binary_Exponention');
-});
-router.get('/publictest', function(req, res){
-  res.render('home/publictest');
-});
-
 module.exports = router;
 

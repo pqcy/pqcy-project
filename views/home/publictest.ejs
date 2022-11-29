@@ -1,7 +1,7 @@
 <%# details 과 summary 그리고 css까지 적용%>
 <style>
 details { margin:5px 0 10px; }
-details > summary { background:#444; color:#fff; padding:10px; outline:0; border-radius:5px; cursor:pointer; transition:background 0.5s; text-align:left; box-shadow: 1px 1px 2px gray;}
+details > summary { background:#444; color:#fff; padding:10px; outline:0; border-radius:5px; cursor:pointer; transition: 0.5s; text-align:left; box-shadow: 1px 1px 2px gray;}
 details > summary::-webkit-details-marker { background:#444; color:#fff; background-size:10px; transform:rotate3d(0, 0, 1, 90deg); transition:transform 0.25s;}
 details[open] > summary::-webkit-details-marker { transform:rotate3d(0, 0, 1, 180deg);}
 details[open] > summary { background:#444;}
@@ -106,7 +106,7 @@ print("평문 = ",n)
 m = int.from_bytes(n.encode('utf-8'), "big")
 
 while True:
-    e = 65537 #e = ZZ.random_element(2,phi)
+    e = 65537
     if 1 == gcd(e,phi):
         d = (e.xgcd(phi)[1])%phi
         if e != d:
