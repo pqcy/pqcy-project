@@ -2,11 +2,191 @@
 <html>
   <head>
     <%-include('../partials/head.ejs')%>
+
+    <%# details 과 summary 그리고 css까지 적용%>
+<style>
+details { margin:5px 0 10px; }
+details > summary { background:#444; color:#fff; padding:10px; outline:0; border-radius:5px; cursor:pointer; transition:0.5s; text-align:left; box-shadow: 1px 1px 2px gray;}
+details > summary::-webkit-details-marker { background:#444; color:#fff; background-size:10px; transform:rotate3d(0, 0, 1, 90deg); transition:transform 0.25s;}
+details[open] > summary::-webkit-details-marker { transform:rotate3d(0, 0, 1, 180deg);}
+details[open] > summary { background:#444;}
+details[open] > summary ~ * { animation:reveal 0.5s;}
+.tpt { background:#444; color:#fff; margin:5px 0 10px; padding:5px 10px; line-height:25px; border-radius:5px; box-shadow: 1px 1px 2px gray;}
+
+@keyframes reveal {
+    from { opacity:0; transform:translate3d(0, -30px, 0); }
+    to { opacity:1; transform:translate3d(0, 0, 0); }
+}
+</style>
+
+<%-include('../partials/head.ejs')%>
+<%# Using highlight.js %>
+<link rel="stylesheet"
+  href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+<%# Sage style %>
+<link rel="stylesheet" type="text/css" href="https://sagecell.sagemath.org/static/sagecell_embed.css">
+
+    <style type="text/css">
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
+      footer {
+        width: 100%;
+        height: 56px;
+        position: relative; 
+        /*transform : translateY(-100%); -> footer를 footer height 만큼 올려준다*/ 
+      }
+      .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+            border-bottom: 3px solid #3333CC;
+            color: #3333CC;
+      }
+      .nav-tabs .nav-link {
+        color: #333333;
+        font-weight: bold;
+      }
+      .list-group-item {
+        color: black;
+        /*background-color: #FFCCCC;*/
+        background-color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .list-group {
+        width: 90%;
+        display: flex;
+      }
+      section {
+        width: 20%;
+        background-color: #ffffff;
+        margin: 5px;
+        box-sizing: border-box;
+        display: flex;
+      }
+      aside {
+        width: 65%;
+        height: 500px;
+        float: right;
+        /*padding: 50px;
+        margin: 10px;*/
+        border-radius: 30px;
+      }
+      .carousel-inner > .carousel-item > img {
+        width: 80%;
+        height: 500px;
+      }
+      main {
+        display: flex;
+      }
+      .carousel-control-prev-icon { 
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%29000' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E"); 
+      }
+
+      .carousel-control-next-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%29000' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E"); 
+      }
+      .carousel .carousel-indicators li { background-color: black; }
+      .carousel .carousel-indicators li.active { background-color: black; }
+    </style>
   </head>
   <body>
     <%-include('../partials/nav.ejs')%>
-    <br/><br/><br/><br/>
-    &nbsp; 교육 페이지(고급) 입니다.
+    <br><br><br>
+    <main>
+      <section>
+        <div class="list-group" id="list-tab" role="tablist">
+          <!-- href="#" --><a class="list-group-item list-group-item-action active bg-light text-dark" id="list-profile-list" data-toggle="list" href="#" role="tab" aria-controls="profile">Galois Fields</a>
+          <a class="list-group-item list-group-item-action bg-light text-dark" id="list-home-list" href="#list-home"  data-toggle="list" role="tab" aria-controls="home">Binary Exponentiation</a>
+          <a class="list-group-item list-group-item-action bg-light text-dark" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Multiplication</a>
+          <a class="list-group-item list-group-item-action bg-light text-dark" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Lattice</a>
+          <!-- <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Settings</a> -->
+        </div>
+      </section>
+  
+  </main>
     
+  <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+    
+    <br><br><br><br><br><br>
+    <img src="/images/algorithm/L2R.PNG" width="650" height="400">
+    <details>
+        <summary>python code</summary>
+    
+    <pre><code class="language-python">
+def L2R(a,n):
+    A = a
+    bitlen = n.bit_length() #len(bin(n))-2
+    
+    for i in range(bitlen - 2, -1 ,-1):
+        A = A*A
+        if (n >> i) & 1:
+            A = A*a
+            
+    return A
+    </code></pre>
+
+    </details>
+    <img src="/images/algorithm/R2L.PNG" width="650" height="400">
+    <details>
+        <summary>python code</summary>
+    <pre><code class="language-python">
+def R2L(a,n):
+    A = 1
+    B = a
+    bitlen = n.bit_length() #len(bin(n))-2
+
+    for i in range(0, bitlen):
+        if (n >> i) & 1:
+            A = A*B
+        B = B*B
+        
+    return A
+    </code></pre>
+    </details>
+    <img src="/images/algorithm/MnS.PNG" width="700" height="500">
+    <details>
+        <summary>python code</summary>
+    <pre><code class="language-python">
+def MnS(a,n):
+    A = 1
+    B = a
+    bitlen = n.bit_length() #len(bin(n))-2
+
+    for i in range(bitlen - 1, -1 ,-1):
+        if (n >> i) & 1:
+            A = A*B
+            B = B*B
+        else:
+            B = A*B
+            A = A*A
+    return A
+    </code></pre>
+    </details>
+    <%# It allows embedding Sage computations into any webpage / Sage Cell 삽입%>
+    <h1><img src="/static/sagemathcell-logo.png?v=6e2af643d466a112eaeab1d2e21285b1707a5b3b8991f190583c5603ef4914df0611e9132b1180a8ff88523392cce6d19886336b8aad1706d3b357c8d5ac3800" alt="SageMathCell"></h1>
+    Type some Sage, Python code below and press Evaluate.
+    <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+    <script>sagecell.makeSagecell({"inputLocation": ".sage"});</script>
+    
+    <div class="sage">
+        <script type="text/x-sage"></script>
+      </div>
+</div>
+<div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+  wdqfewgr
+  </div>
+  <!-- Footer --> 
+<footer class="text-center text-lg-start bg-light text-muted">
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+    Copyright2022.BestOftheBest11thPQCY All rights reserved.
+  </div>
+</footer>  
+
   </body>
 </html>
