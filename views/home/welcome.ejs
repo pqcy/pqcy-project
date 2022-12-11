@@ -3,111 +3,168 @@
   <head>
     <%-include('../partials/head.ejs')%>
     <style>
-      content{
-        position: absolute; top:0; left: 0;
-        width: 100%;
+      @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+      body {
+        font-family: 'Jua', sans-serif;
+      }
+      /*
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap');
+      body {
+        font-family: 'Noto Sans KR', sans-serif;
+      }
+      */
+      #wrapper {
+        height: auto;
+        min-height: 100%;
+        padding-bottom: 10px;
+      }
+      .carousel-inner {
+        width: 1000px;
+        height: 500px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .carousel-item {
+        width: auto;
         height: 100%;
       }
-      .card-img-top {
-        height: 15rem;
-        object-fit: cover;
+      .d-block {
+        display: block;
+        width: auto;
+        height: 100%;
+      }
+      .carousel-control-next, .carousel-control-prev{
+        filter: invert(100%);
       }
     </style>
   </head>
   <body>
     <%-include('../partials/nav.ejs')%>
 
-    <div class="text-center mb-3">
+    <div id="wrapper"> <!-- footer 설정용 -->
 
-      <div class="Bootstrap" margin: auto;>
-        <br/><br/><br/><br/>
-        <!-- Need to adjust size -->
-        <!--
-        <button type="button" class="btn btn-outline-danger" onclick="moveBasic(); return false;">교육 페이지(초급)</button> &nbsp;&nbsp;
-        <button type="button" class="btn btn-outline-warning" onclick="moveMid(); return false;">교육 페이지(중급)</button> &nbsp;&nbsp;
-        <button type="button" class="btn btn-outline-success" onclick="moveAdv(); return false;">교육 페이지(고급)</button> &nbsp;&nbsp;
-        <button type="button" class="btn btn-outline-info" onclick="moveAsy(); return false;">공개키 탑재 가이드</button> &nbsp;&nbsp;
-        <button type="button" class="btn btn-outline-dark" onclick="moveCom(); return false;">커뮤니티</button>
-        -->
-        <!-- <button type="button" class="btn btn-outline-primary">Junior</button>
-        <button type="button" class="btn btn-outline-secondary">Senior</button> -->
-        <button type="button" class="btn btn-outline-info" onclick="moveBasic(); return false;">교육 페이지(초급)</button> &nbsp;&nbsp;&nbsp;&nbsp;
-        <button type="button" class="btn btn-outline-info" onclick="moveMid(); return false;">교육 페이지(중급)</button> &nbsp;&nbsp;&nbsp;&nbsp;
-        <button type="button" class="btn btn-outline-info" onclick="moveAdv(); return false;">교육 페이지(고급)</button> &nbsp;&nbsp;&nbsp;&nbsp;
-        <button type="button" class="btn btn-outline-info" onclick="moveAsy(); return false;">양자내성암호 탑재 가이드</button> &nbsp;&nbsp;&nbsp;&nbsp;
-        <button type="button" class="btn btn-outline-info" onclick="moveCom(); return false;">커뮤니티</button>
-      </div>
-
-      <br/>
-
-      <div class="card bg-light">
-        <div class="card-body">
-          <b>양자내성암호 이용 활성화를 위한 과기정통부 산하 KISA, KITRI, NSHC에서 후원하는 교육 사이트입니다.</b><br/>
-        <!-- </div> -->
-        <br/>
-        <img src="/images/kitri-logo.jpg" width="400" height="70">
-        <img src="/images/nshc-logo.png" width="200" height="40">
-
-        <br/><br/><br/>
-  
-        <div class="card justify-content-center" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title">EVENT</h5>
-            <h6 class="card-subtitle mb-2 text-muted">퀴즈를 풀면 스타벅스 기프티콘이?</h6>
-            <img src="/images/starbucks.jpg" width="80" height="80"><br/>
-            <!-- <p class="card-text">Content</p> -->
-            <!-- Quiz link add -->
-            <a href="/quiz" class="card-link">Quiz 바로가기</a>
-            <!-- <a href="#" class="card-link">Another link</a> -->
+    <!-- carouse -->
+    <div id="carouselIndicators" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img class="d-block w-100" src="/images/main-extend.jpg" alt="First slide">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>첫번째 carousel</h5>
+            <p>example code</p>
           </div>
         </div>
-        <br/>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="/images/main-extend.jpg" alt="Second slide">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>두번째 carousel</h5>
+            <p>example code</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="/images/main-extend.jpg" alt="Third slide">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>세번째 carousel</h5>
+            <p>example code</p>
+          </div>
+        </div>
       </div>
-      </div>
+      
+      <!-- 왼쪽 오른쪽 화살표 버튼 -->
+      <a class="carousel-control-prev" href="#carouselIndicators" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      </a>
+      <a class="carousel-control-next" href="#carouselIndicators" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      </a>
+
+      <!-- 인디케이터 -->
+      <ul class="carousel-indicators">
+        <li data-target="#carouselIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselIndicators" data-slide-to="2"></li>
+      </ul>
     </div>
 
-<!-- Footer --> 
-<footer class="text-center text-lg-start bg-light text-muted">
-  <section class="">
-    <div class="container text-center text-md-start mt-5">
-      <div class="row mt-3">
-        <div class="col-md-5 col-lg-5 col-xl-5 mx-auto mb-15">
-          <br/>
+    <br/><br/><br/><br/>
+
+    <!-- components. pqcy project -->
+    <section id="pqcy">
+      <div class="container" data-aos="fade-up">
+        <header class="section-header" style="text-align: center;">
+          <h3>PQCY-project는?</h3>
           <p>
-            08504 서울특별시 금천구 서부샛길 606 가산 대성디폴리스 A동 27층
+            2022 Best of the Best 11기에서 진행한 프로젝트 주관<br/>
+            양자내성암호 교육 페이지입니다.
           </p>
-        </div>
-        <div class="col-md-5 col-lg-5 col-xl-5 mx-auto mb-md-0 mb-15">
-          <b>Contact</b><br/>
-          <b>TEL.</b> 02-869-8301(#9821)<br/>
-          <b>MAIL.</b> imkeysoon@gmail.com
-        </div>
-        <img src="/images/bob_logo.png" width="50" height="50" alt="">
-      </div>
-    </div>
-  </section>
-  <!-- Copyright -->
-  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
-    Copyright2022.BestOftheBest11thPQCY All rights reserved.
-  </div>
-</footer>
+        </header>
 
-  <script type="text/javascript">
-    function moveBasic() {
-      location.href="/eduBasic";
-    }
-    function moveMid() {
-      location.href="/eduMid";
-    }
-    function moveAdv() {
-      location.href="/eduAdv";
-    }
-    function moveAsy() {
-      location.href="/asyGuide";
-    }
-    function moveCom() {
-      location.href="/community";
-    }
-  </script>
+        <!--
+        <p style="text-align: center;">
+          가나다라마바사아자차카타파하
+        </p>
+        -->
+
+        <br/>
+
+        <div class="col-lg-10 content order-lg-1 order-2">
+          <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+            <div class="icon"><i class="bi bi-card-checklist"></i></div>
+            <h4 class="title"><a href="#">양자내성암호란?</a></h4>
+            <p class="description">
+              기존의 공개키 암호를 소개하고, 앞으로 도래할 양자 컴퓨터 시대에 맞선 양자내성암호를 공부합니다.
+            </p>
+          </div>
+
+          <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
+            <div class="icon"><i class="bi bi-brightness-high"></i></div>
+            <h4 class="title"><a href="#">양자내성암호 알고리즘</a></h4>
+            <p class="description">
+              기반문제로 나누어 양자내성암호 알고리즘을 설명하고 NIST ROUND 선정 양자내성암호를 소개합니다.
+            </p>
+          </div>
+
+          <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
+            <div class="icon"><i class="bi bi-calendar4-week"></i></div>
+            <h4 class="title"><a href="#">양자내성암호 탑재 가이드</a></h4>
+            <p class="description">
+              양자내성암호 탑재 가이드를 확인할 수 있습니다.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <br/><br/><br/><br/><br/>
+
+
+    <!-- components. about us -->
+    <section id="about">
+      <div class="container" data-aos="fade-up">
+        <header class="section-header" style="text-align: center;">
+          <h3>About Us</h3>
+          <p>
+            Best of the Best(BOB) 11기 <span>양자키순(PQCY)</span> 팀입니다.
+          </p>
+        </header>
+
+
+      </div>
+    </section>
+
+
+    <br/><br/><br/><br/><br/><br/><br/><br/>
+    <br/><br/><br/><br/><br/><br/><br/><br/>
+    <br/><br/><br/><br/><br/><br/><br/><br/>
+
+    </div>
+
+    <%-include('../partials/footer.ejs')%>
   </body>
 </html>
