@@ -19,6 +19,19 @@
       .nav {
         border: 1px solid white;
       }
+      #rsaBtn {
+        float: right;
+      }
+      .text {
+        text-decoration: underline;
+        text-decoration-color: black;
+        color: blue;
+      }
+      img:focus,
+      img:active {
+        animation: rotate3d 3s linear infinite, scalel 3s linear infinite !important;
+        transform-origin: 50% 50% !important;
+      }
     </style>
   </head>
   <body>
@@ -33,7 +46,8 @@
         <li class="nav-item" role="presentation">
           <div data-toggle="collapse" href="#btn1" aria-expanded="false" aria-controls="btn1">
           <a class="navber-brand">
-            <img src="/images/definition/button1.png" width="160" height="160">
+            <img id="img1" src="/images/definition/button1.png" width="160" height="160">
+            <img id="img2" src="/images/definition/focus-button1.png" width="160" height="160">
           </a>
           </div>
         </li>
@@ -41,7 +55,8 @@
         <li class="nav-item" role="presentation">
           <div data-toggle="collapse" href="#btn2" aria-expanded="false" aria-controls="btn2">
           <a class="navber-brand">
-            <img src="/images/definition/button2.png" width="160" height="160">
+            <img id="img3" src="/images/definition/button2.png" width="160" height="160">
+            <img id="img4" src="/images/definition/focus-button2.png" width="160" height="160">
           </a>
           </div>
         </li>
@@ -49,18 +64,17 @@
         <li class="nav-item" role="presentation">
           <div data-toggle="collapse" href="#btn3" aria-expanded="false" aria-controls="btn3">
           <a class="navber-brand">
-            <img src="/images/definition/button3.png" width="160" height="160">
+            <img id="img5" src="/images/definition/button3.png" width="160" height="160">
+            <img id="img6" src="/images/definition/focus-button3.png" width="160" height="160">
           </a>
           </div>
         </li>
-
 
       </ul>
     </nav>
 
     <br/><br/>
 
-    
 
     <!-- 기존 공개키 암호 -->
     <div class="collapse" id="btn1">
@@ -74,10 +88,10 @@
           RSA는 많이 쓰이는 알고리즘인 만큼 이 이름을 따서 매년 미국에서 RSA conference가 열립니다.
           참고로 RSA conference는 아주아주 큰 보안 conference입니다.<br/><br/>
           1977년 Ron Rivest, Adi Shamir, Leonard Adleman가 인수분해의 어려움을 기반으로 공개키 암호 알고리즘을 만들었습니다.
-          이 공개키 암호 알고리즘의 이름은 성의 첫 글자를 따서 <span>RSA</span> 라고 부릅니다.<br/><br/>
+          이 공개키 암호 알고리즘의 이름은 성의 첫 글자를 따서 <span class="text">RSA</span> 라고 부릅니다.<br/><br/>
           RSA 알고리즘은 아주 큰 두개의 소수 p,q를 곱한 값 N을 공개해줍니다.<br/>
-          예를 들어 10을 인수분해한다면 2×5로 인수분해를 쉽게 할 수 있습니다. 하지만 76008181을 바로 인수분해 할 수 있나요?
-          76008181을 8111×9371로 바로 인수분해 하실 수 있는 분은 드물 것 입니다.
+          예를 들어 10을 인수분해한다면 2 * 5로 인수분해를 쉽게 할 수 있습니다. 하지만 76008181을 바로 인수분해 할 수 있나요?
+          76008181을 8111 * 9371로 바로 인수분해 하실 수 있는 분은 드물 것 입니다.
           실제 RSA에서는 사람은 물론 슈퍼컴퓨터로도 인수분해하기 힘든 크기의 숫자를 사용합니다.<br/><br/>
           이 외에서 타원곡선 이론에 기반한 타원곡선 암호(ECC) 공개키암호 방식 등이 존재합니다.<br/><br/>
           아래에 RSA를 테스트해볼 수 있는 코드가 준비되어 있습니다.
@@ -106,6 +120,9 @@
 
               <details>
                 <summary>python code</summary>
+                <br/>
+                <button id="rsaBtn">Copy!</button>
+                <div id="rsaCode">
               <pre><code class="language-python">
             bound = 2<<512
 
@@ -146,7 +163,9 @@
             print("암호문 = ",hex(c))
             print("복호문 = {}".format(m1))
             print(n == m1)
-          </code></pre></details>
+          </code></pre>
+        </div>
+      </details>
           </p>
         </div>
 
@@ -162,7 +181,7 @@
         <p class="lead">
           예를 들어 복잡한 3차원 물체의 시뮬레이션이나, 양자역학적 행동을 하는 물질의 시뮬레이션 등은 최첨단 컴퓨터를 사용하더라도 계산하기 어렵습니다.
           이 외에도 큰 정수의 인수 분해를 하기 어렵거나 머신 러닝 분야에서는 계산에 많은 시간이 걸리는 문제도 존재합니다.<br/>
-          이러한 한계를 극복하기 위한 방안 중 하나가 바로 <span>양자 컴퓨터</span>입니다.<br/><br/>
+          이러한 한계를 극복하기 위한 방안 중 하나가 바로 <span class="text">양자 컴퓨터</span>입니다.<br/><br/>
           물론 단점도 존재합니다.<br/>
           현재 보안에서 많이 쓰이는 공개키 암호인 RSA는 인수 분해가 어렵다는 문제에 기반하고 있습니다.
           실제로 1994년 129자리 숫자(426bits)를 소인수 분해하는데 1,600여 대의 컴퓨터를 이용하여 8개월이라는 시간이 걸렸습니다.<br/>
@@ -183,7 +202,7 @@
         <h1 class="display-5">양자내성암호란?</h1>
         <hr class="my-4">
         <p class="lead">
-          <span>양자내성암호(Post Quantum Cryptography, PQC)</span>는 양자 컴퓨터 환경에서도 안전한 공개키 암호를 뜻합니다.<br/>
+          <span class="text">양자내성암호(Post Quantum Cryptography, PQC)</span>는 양자 컴퓨터 환경에서도 안전한 공개키 암호를 뜻합니다.<br/>
           양자 컴퓨팅 환경에서 쇼어 알고리즘을 활용하여 인수 분해 및 이산 로그 등 기존의 공개키 암호가 풀기 어려웠던 문제들이 풀리면서 암호가 해독될 수 있습니다.<br/><br/>
           미국의 NIST(국가표준기술연구소)에서는 다가올 양자 컴퓨터를 활용하여 암호가 해독될 상황에 대비하기 위해 양자내성암호 알고리즘 공모 및 표준화 작업을 진행 중이며,
           2024년까지 최종 표준화 알고리즘을 발표할 계획입니다.<br/>
@@ -197,6 +216,10 @@
 
 
 
+
+
+
+
     </div>
 
     <br/><br/><br/><br/><br/><br/>
@@ -204,4 +227,53 @@
 
     <%-include('../partials/footer.ejs')%>
   </body>
+
+  <script>
+    const rsaCode = document.getElementById("rsaCode");
+
+    document.getElementById("rsaBtn").onclick = () => {
+      window.navigator.clipboard.writeText(rsaCode.textContent).then(() => {
+        alert("복사되었습니다.");
+      });
+    };
+
+    $(document).ready(function() {
+      $("#img1").show();
+      $("#img3").show();
+      $("#img5").show();
+      $("#img2").hide();
+      $("#img4").hide();
+      $("#img6").hide();
+
+      $("#img1").click(function() {
+        $("#img1").hide();
+        $("#img2").show();
+      });
+
+      $("#img2").click(function() {
+        $("#img1").show();
+        $("#img2").hide();
+      });
+
+      $("#img3").click(function() {
+        $("#img3").hide();
+        $("#img4").show();
+      });
+
+      $("#img4").click(function() {
+        $("#img3").show();
+        $("#img4").hide();
+      });
+
+      $("#img5").click(function() {
+        $("#img5").hide();
+        $("#img6").show();
+      });
+
+      $("#img6").click(function() {
+        $("#img5").show();
+        $("#img6").hide();
+      });
+    });
+  </script>
 </html>
