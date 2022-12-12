@@ -1,7 +1,7 @@
 # pqcy-project
 
-🧸 TEST
-```
-$ npm start
-```
-connect 👉🏻 127.0.0.1:3000
+### 🧸 TEST
+``` $ npm start ```
+
+### 🧸 TEST connect
+``` 127.0.0.1:3000 ```
