@@ -27,10 +27,54 @@
         text-decoration-color: black;
         color: blue;
       }
-      img:focus,
-      img:active {
-        animation: rotate3d 3s linear infinite, scalel 3s linear infinite !important;
-        transform-origin: 50% 50% !important;
+      @keyframes ring {
+        0% {
+          width: 30px;
+          height: 30px;
+          opacity: 1;
+          }
+        100% {
+          width: 300px;
+          height: 300px;
+          opacity: 0;
+          }
+      } 
+      button {
+        position: relative;
+        border: none;
+        display: inline-block;
+        border-radius: 15px;
+        box-shadow: 0 15px 35px rgba(79, 209, 197, 0.64);
+        text-decoration: none;
+        transition: 0.3s;
+        background: linear-gradient(
+        90deg,
+        rgba(129, 230, 217, 1) 0%,
+        rgba(79, 209, 197, 1) 100%
+        );
+        cursor: pointer;
+      }
+      button:hover {
+        transform: scale(1.2);
+        border: none;
+      }
+      button:focus {
+        border: none;
+        outline: none;
+      }
+      button:hover::after {
+        border: none;
+        content: "";
+        width: 30px;
+        height: 30px;
+        border-radius: 100%;
+        border: 6px solid #00ffcb;
+        position: absolute;
+        z-index: -1;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation: ring 1.5s infinite;
       }
     </style>
   </head>
@@ -98,7 +142,7 @@
         </p>
         <hr class="my-4">
         <span data-toggle="collapse" href="#sample" aria-expanded="false" aria-controls="sample">
-          <button>sample code</button>
+          <button>&nbsp;sample code&nbsp;</button>
         </span>
 
         <div class="collapse" id="sample">
