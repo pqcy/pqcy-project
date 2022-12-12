@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%-include('../partials/head.ejs')%>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+      /*
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap');
+      body {
+        font-family: 'Noto Sans KR', sans-serif;
+      }
+      */
+      #wrapper {
+        font-family: 'Jua', sans-serif;
+        height: auto;
+        min-height: 100%;
+        padding-bottom: 10px;
+      }
+      .nav {
+        border: 1px solid white;
+      }
+      /*
+      .btn {
+        text-align: center;
+      }
+      .btn1, .btn2, .btn3 {
+        display: inline-block;
+      }
+      img,
+      button {
+        border: none;
+        outline: none; 
+        width: 150px;
+        height: 150px;
+      }
+      img:focus,
+      img:active,
+      button:focus,
+      button:active {
+        outline: none;
+        box-shadow: none;
+      }
+      */
+    </style>
+  </head>
+  <body>
+    <%-include('../partials/nav.ejs')%>
+
+    <div id="wrapper"> <!-- footer 설정용 -->
+    <br/><br/><br/><br/><br/>
+
+    <nav>
+      <ul class="nav justify-content-center nav-tabs nav-fill" role="tablist">
+
+        <li class="nav-item" role="presentation">
+          <div data-toggle="collapse" href="#btn1" aria-expanded="false" aria-controls="btn1">
+          <a class="navber-brand">
+            <img src="/images/definition/definition-button1.png" width="170" height="170">
+          </a>
+          </div>
+        </li>
+
+        <li class="nav-item" role="presentation">
+          <a class="navber-brand">
+            <img src="/images/definition/definition-button2.png" width="160" height="160">
+          </a>
+        </li>
+
+        <li class="nav-item" role="presentation">
+          <a class="navber-brand">
+            <img src="/images/definition/definition-button3.png" width="160" height="160">
+          </a>
+        </li>
+
+      </ul>
+    </nav>
+
+    <br/><br/><br/><br/>
+
+    <div class="collapse" id="btn1">
+      <div class="description">
+        RSA는 현재 전 세계적으로 가장 많이 사용하고 있는 공개키 암호입니다.
+      </div>
+    </div>
+
+    <div class="jumbotron">
+      <h1 class="display-4">기존 공개키 암호</h1>
+      <p class="lead">
+        RSA는 현재 전 세계적으로 가장 많이 사용하고 있는 공개키 암호입니다.
+      </p>
+      <hr class="my-4">
+      <p>
+        sample code
+      </p>
+    </div>
+
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">기존 공개키 암호</h1>
+        <p class="lead">
+          RSA는 현재 전 세계적으로 가장 많이 사용하고 있는 공개키 암호입니다.
+        </p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        RSA는 현재 전 세계적으로 가장 많이 사용하고 있는 공개키 암호입니다.
+      </div>
+    </div>
+
+
+    </div>
+
+    <br/><br/><br/><br/><br/><br/>
+    <br/><br/><br/><br/><br/><br/>
+    <br/><br/><br/><br/><br/><br/>
+
+    <%-include('../partials/footer.ejs')%>
+  </body>
+</html>

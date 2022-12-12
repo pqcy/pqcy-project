@@ -9,22 +9,16 @@ router.get('/about', function(req, res){
   res.render('home/about');
 });
 
-router.get('/eduBasic', function(req, res){
-  res.render('home/eduBasic');
+// navbar
+router.get('/definition', function(req, res){
+  res.render('home/definition');
 });
-
-router.get('/eduMid', function(req, res){
-  res.render('home/eduMid');
+router.get('/algorithm', function(req, res){
+  res.render('home/algorithm');
 });
-
-router.get('/eduAdv', function(req, res){
-  res.render('home/eduAdv');  
+router.get('/guide', function(req, res){
+  res.render('home/guide');
 });
-
-router.get('/asyGuide', function(req, res){
-  res.render('home/asyGuide');
-});
-
 router.get('/community', function(req, res){
   res.render('home/community');
 });
