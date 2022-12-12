@@ -19,28 +19,6 @@
       .nav {
         border: 1px solid white;
       }
-      /*
-      .btn {
-        text-align: center;
-      }
-      .btn1, .btn2, .btn3 {
-        display: inline-block;
-      }
-      img,
-      button {
-        border: none;
-        outline: none; 
-        width: 150px;
-        height: 150px;
-      }
-      img:focus,
-      img:active,
-      button:focus,
-      button:active {
-        outline: none;
-        box-shadow: none;
-      }
-      */
     </style>
   </head>
   <body>
@@ -55,64 +33,172 @@
         <li class="nav-item" role="presentation">
           <div data-toggle="collapse" href="#btn1" aria-expanded="false" aria-controls="btn1">
           <a class="navber-brand">
-            <img src="/images/definition/definition-button1.png" width="170" height="170">
+            <img src="/images/definition/button1.png" width="160" height="160">
           </a>
           </div>
         </li>
 
         <li class="nav-item" role="presentation">
+          <div data-toggle="collapse" href="#btn2" aria-expanded="false" aria-controls="btn2">
           <a class="navber-brand">
-            <img src="/images/definition/definition-button2.png" width="160" height="160">
+            <img src="/images/definition/button2.png" width="160" height="160">
           </a>
+          </div>
         </li>
 
         <li class="nav-item" role="presentation">
+          <div data-toggle="collapse" href="#btn3" aria-expanded="false" aria-controls="btn3">
           <a class="navber-brand">
-            <img src="/images/definition/definition-button3.png" width="160" height="160">
+            <img src="/images/definition/button3.png" width="160" height="160">
           </a>
+          </div>
         </li>
+
 
       </ul>
     </nav>
 
-    <br/><br/><br/><br/>
+    <br/><br/>
 
+    
+
+    <!-- 기존 공개키 암호 -->
     <div class="collapse" id="btn1">
-      <div class="description">
-        RSA는 현재 전 세계적으로 가장 많이 사용하고 있는 공개키 암호입니다.
-      </div>
-    </div>
-
-    <div class="jumbotron">
-      <h1 class="display-4">기존 공개키 암호</h1>
-      <p class="lead">
-        RSA는 현재 전 세계적으로 가장 많이 사용하고 있는 공개키 암호입니다.
-      </p>
-      <hr class="my-4">
-      <p>
-        sample code
-      </p>
-    </div>
-
-    <div class="jumbotron jumbotron-fluid">
-      <div class="container">
-        <h1 class="display-4">기존 공개키 암호</h1>
+      <div class="jumbotron">
+        <h1 class="display-5">기존 공개키 암호</h1>
+        <hr class="my-4">
         <p class="lead">
-          RSA는 현재 전 세계적으로 가장 많이 사용하고 있는 공개키 암호입니다.
+          RSA는 현재 전 세계적으로 가장 많이 사용하고 있는 공개키 암호입니다.<br/>
+          대표적으로 인증서에서도 RSA를 볼 수 있습니다.<br/><br/>
+          <img src="/images/definition/rsa-certification.png" width="400" height="480"><br/><br/>
+          RSA는 많이 쓰이는 알고리즘인 만큼 이 이름을 따서 매년 미국에서 RSA conference가 열립니다.
+          참고로 RSA conference는 아주아주 큰 보안 conference입니다.<br/><br/>
+          1977년 Ron Rivest, Adi Shamir, Leonard Adleman가 인수분해의 어려움을 기반으로 공개키 암호 알고리즘을 만들었습니다.
+          이 공개키 암호 알고리즘의 이름은 성의 첫 글자를 따서 <span>RSA</span> 라고 부릅니다.<br/><br/>
+          RSA 알고리즘은 아주 큰 두개의 소수 p,q를 곱한 값 N을 공개해줍니다.<br/>
+          예를 들어 10을 인수분해한다면 2×5로 인수분해를 쉽게 할 수 있습니다. 하지만 76008181을 바로 인수분해 할 수 있나요?
+          76008181을 8111×9371로 바로 인수분해 하실 수 있는 분은 드물 것 입니다.
+          실제 RSA에서는 사람은 물론 슈퍼컴퓨터로도 인수분해하기 힘든 크기의 숫자를 사용합니다.<br/><br/>
+          이 외에서 타원곡선 이론에 기반한 타원곡선 암호(ECC) 공개키암호 방식 등이 존재합니다.<br/><br/>
+          아래에 RSA를 테스트해볼 수 있는 코드가 준비되어 있습니다.
         </p>
+        <hr class="my-4">
+        <span data-toggle="collapse" href="#sample" aria-expanded="false" aria-controls="sample">
+          <button>sample code</button>
+        </span>
+
+        <div class="collapse" id="sample">
+          <p>
+            <style>
+              details { margin:5px 0 10px; }
+              details > summary { background:#444; color:#fff; padding:10px; outline:0; border-radius:5px; cursor:pointer; transition: 0.5s; text-align:left;}
+              details > summary::-webkit-details-marker { background:#444; color:#fff; background-size:10px; transform:rotate3d(0, 0, 1, 90deg); transition:transform 0.25s;}
+              details[open] > summary::-webkit-details-marker { transform:rotate3d(0, 0, 1,
+              180deg);}
+              details[open] > summary { background:#444;}
+              details[open] > summary ~ * { animation:reveal 0.5s;}
+              .tpt { background:#444; color:#fff; margin:5px 0 10px; padding:5px 10px;}
+              @keyframes reveal {
+              from { opacity:0; transform:translate3d(0, -30px, 0); } to { opacity:1; transform:translate3d(0, 0, 0); }
+              }
+            </style>
+            <p>RSA-512</p>
+
+              <details>
+                <summary>python code</summary>
+              <pre><code class="language-python">
+            bound = 2<<512
+
+            #두개의 서로다른 소수 생성 
+            while True:
+              p = random_prime(bound-1, lbound = bound >> 1)
+              q = random_prime(bound-1, lbound = bound >> 1)
+              if p != q:
+                break
+
+            N = p*q
+            phi = (p-1)*(q-1)
+
+            print ("p = {}".format(p))
+            print ("q = {}".format(q))
+            print ("N = {}".format(N))
+            print ("phi = {}".format(phi))
+
+            n = "내용을 입력해보세요"
+            print("평문 = ",n)
+            m = int.from_bytes(n.encode('utf-8'), "big")
+
+            while True:
+                e = 65537
+              if 1 == gcd(e,phi):
+                d = (e.xgcd(phi)[1])%phi
+                if e != d:
+                  break
+
+            print ("공개키(e) = {}".format(e))
+            print ("비밀키(d) = {}".format(d))
+
+            c = (m^e)%N
+            m1 = pow(c,d,N)
+
+            m1 = bytes.fromhex(hex(m1)[2:]).decode('utf-8')
+
+            print("암호문 = ",hex(c))
+            print("복호문 = {}".format(m1))
+            print(n == m1)
+          </code></pre></details>
+          </p>
+        </div>
+
       </div>
     </div>
 
-    <div class="card">
-      <div class="card-body">
-        RSA는 현재 전 세계적으로 가장 많이 사용하고 있는 공개키 암호입니다.
+
+    <!-- 양자 컴퓨터란? -->
+    <div class="collapse" id="btn2">
+      <div class="jumbotron">
+        <h1 class="display-5">양자 컴퓨터란?</h1>
+        <hr class="my-4">
+        <p class="lead">
+          예를 들어 복잡한 3차원 물체의 시뮬레이션이나, 양자역학적 행동을 하는 물질의 시뮬레이션 등은 최첨단 컴퓨터를 사용하더라도 계산하기 어렵습니다.
+          이 외에도 큰 정수의 인수 분해를 하기 어렵거나 머신 러닝 분야에서는 계산에 많은 시간이 걸리는 문제도 존재합니다.<br/>
+          이러한 한계를 극복하기 위한 방안 중 하나가 바로 <span>양자 컴퓨터</span>입니다.<br/><br/>
+          물론 단점도 존재합니다.<br/>
+          현재 보안에서 많이 쓰이는 공개키 암호인 RSA는 인수 분해가 어렵다는 문제에 기반하고 있습니다.
+          실제로 1994년 129자리 숫자(426bits)를 소인수 분해하는데 1,600여 대의 컴퓨터를 이용하여 8개월이라는 시간이 걸렸습니다.<br/>
+          현재 RSA에서 사용되는 숫자는 약 616자리(2048bits)로 역설적이게도 두 수를 곱하여 616자리 숫자를 생성하는 것은 현재 컴퓨터로 1초도 안걸리지만,
+          이를 분해하는데에는 엄청난 시간이 소모됩니다.<br/><br/>
+          하지만 피터 쇼어가 1994년 논문에서 제안한 양자 알고리즘인 쇼어 알고리즘의 존재로 인해 공개키 암호에 위기가 찾아왔습니다.<br/>
+          쇼어 알고리즘은 현재 소인수 분해를 하는 알고리즘 중 가장 빠른 알고리즘으로 알려져 있으며 고전 컴퓨터로 구현한 쇼어 알고리즘은 여전히 공개키 암호 체계에 큰 위협을 주지 않지만,
+          양자 컴퓨터를 활용하게 된다면 굉장히 짧은 시간 내에 소인수 분해가 가능하게 됩니다.
+        </p>
+    
       </div>
     </div>
 
 
+    <!-- 양자내성암호란? -->
+    <div class="collapse" id="btn3">
+      <div class="jumbotron">
+        <h1 class="display-5">양자내성암호란?</h1>
+        <hr class="my-4">
+        <p class="lead">
+          <span>양자내성암호(Post Quantum Cryptography, PQC)</span>는 양자 컴퓨터 환경에서도 안전한 공개키 암호를 뜻합니다.<br/>
+          양자 컴퓨팅 환경에서 쇼어 알고리즘을 활용하여 인수 분해 및 이산 로그 등 기존의 공개키 암호가 풀기 어려웠던 문제들이 풀리면서 암호가 해독될 수 있습니다.<br/><br/>
+          미국의 NIST(국가표준기술연구소)에서는 다가올 양자 컴퓨터를 활용하여 암호가 해독될 상황에 대비하기 위해 양자내성암호 알고리즘 공모 및 표준화 작업을 진행 중이며,
+          2024년까지 최종 표준화 알고리즘을 발표할 계획입니다.<br/>
+          NIST에는 쇼어 알고리즘으로 해독될 수 있는 인수 분해 및 이산 로그 문제와는 달리 양자 컴퓨터로도 해결하기 어렵다고 여겨지는 <span>아이소제니, 격자, 코드, 다변수 방정식</span> 등의 문제를 활용한 알고리즘들이 후보로 올라와 있습니다.
+        </p>
+    
+      </div>
     </div>
 
-    <br/><br/><br/><br/><br/><br/>
+
+
+
+
+    </div>
+
     <br/><br/><br/><br/><br/><br/>
     <br/><br/><br/><br/><br/><br/>
 
