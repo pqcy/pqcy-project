@@ -4,9 +4,6 @@
     <%-include('../partials/head.ejs')%>
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
-      body {
-        font-family: 'Jua', sans-serif;
-      }
       /*
       @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap');
       body {
@@ -14,9 +11,49 @@
       }
       */
       #wrapper {
+        font-family: 'Jua', sans-serif;
         height: auto;
         min-height: 100%;
-        padding-bottom: 10px;
+        padding-bottom: 400px;
+      }
+      button {
+        position: relative;
+        border: none;
+        display: inline-block;
+        border-radius: 15px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        text-decoration: none;
+        transition: 0.25s;
+        background-color: #6aafe6;
+        color: #ffffff;
+      }
+      button:focus {
+        position: relative;
+        border: none;
+        outline: none;
+        display: inline-block;
+        border-radius: 15px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        text-decoration: none;
+        transition: 0.25s;
+        background-color: #ffffff;
+        color: black;
+      }
+      button:active {
+        position: relative;
+        border: none;
+        display: inline-block;
+        border-radius: 15px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        text-decoration: none;
+        transition: 0.25s;
+        background-color: #ffffff;
+        color: black;
+      }
+      .text {
+        text-decoration: underline;
+        text-decoration-color: black;
+        color: #5497ce;
       }
     </style>
   </head>
@@ -24,12 +61,86 @@
     <%-include('../partials/nav.ejs')%>
 
     <div id="wrapper"> <!-- footer 설정용 -->
-    <br/><br/><br/><br/>
+    <br/><br/><br/><br/><br/><br/>
 
-      양자내성암호 탑재 가이드
+      <div class="container" data-aos="fade-up">
+        <header class="section-header" style="text-align: center;">
+          <h3>공개키 탑재 가이드</h3>
+          <hr class="my-4">
+          <p style="font-size: 20px;">
+            본 가이드는 OpenSSL에 양자내성암호(이하 PQC)를 적용하기 위한 가이드입니다.<br/><br/>
+            현재 OpenSSL에 대칭키를 탑재하는 방법은 상당 수 알려져 있으나, 그에 비해 공개키를 탑재하는 방법에 대하여는 알려진 바가 적습니다.<br/>
+            따라서 OpenSSL 코드 분석 및 OpenSSL에 PQC를 탑재한 여러 프로젝트, 그리고 논문을 참고하여
+            OpenSSL에 공개키를 탑재하는 방법을 작성하였습니다.
+            특히나 본 가이드는 다가올 양자 컴퓨터의 시대에 대비하여 OpenSSL에 PQC를 적용하는 것에 집중하고 있습니다.<br/><br/>
+            SSL(TLS) 통신에서 PQC를 적용하고자 한다면 두 가지의 가이드가 필요할 것입니다.
+            하나는 PQC 서명 알고리즘에 대한 탑재 가이드이고, 하나는 PQC KEM에 대한 탑재 가이드입니다.<br/><br/>
+            본 가이드에서는 두 가지 모두 제공합니다.
+          </p>
+        </header>
+      </div>
+
+      <br/><br/>
+
+
+      <div class="container row" style="float: none; margin: 100 auto;">
+        <div class="col-md-3" style="float: none; margin: 0 auto;">
+          <div class="card text-center" style="width: 25rem;">
+            <div class="card-body">
+              <h5 class="card-title">공개키 탑재 가이드</h5>
+              <p class="card-text">
+                <span class="text">PQC 서명 알고리즘 탑재 가이드</span> 입니다.
+              </p>
+              <!-- 커스텀 버튼 생성하기-->
+              <span data-toggle="collapse" href="#sig" aria-expanded="false" aria-controls="sig">
+                <button>&nbsp;gogo!&nbsp;</button>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3" style="float: none; margin: 0 auto;">
+          <div class="card text-center" style="width: 25rem;">
+            <div class="card-body">
+              <h5 class="card-title">공개키 탑재 가이드</h5>
+              <p class="card-text">
+                <span class="text">PQC KEM 탑재 가이드</span> 입니다.
+              </p>
+              <span data-toggle="collapse" href="#kem" aria-expanded="false" aria-controls="kem">
+                <button>&nbsp;gogo!&nbsp;</button>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <br/><br/>
+
+
+      <div class="collapse" id="sig">
+        <div class="jumbotron">
+          <h1 class="display-5">PQC 서명 알고리즘 탑재 가이드</h1>
+          <hr class="my-4">
+          <p class="lead">
+            입니다.
+          </p>
+      
+        </div>
+      </div>
+
+
+      <div class="collapse" id="kem">
+        <p>
+          abcdefg2
+        </p>
+      </div>
+
+
 
 
     </div>
+
+    <br/><br/><br/><br/>
 
     <%-include('../partials/footer.ejs')%>
   </body>

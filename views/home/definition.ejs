@@ -14,7 +14,7 @@
         font-family: 'Jua', sans-serif;
         height: auto;
         min-height: 100%;
-        padding-bottom: 10px;
+        padding-bottom: 400px;
       }
       .nav {
         border: 1px solid white;
@@ -44,14 +44,11 @@
         border: none;
         display: inline-block;
         border-radius: 15px;
-        box-shadow: 0 15px 35px rgba(79, 209, 197, 0.64);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
         text-decoration: none;
         transition: 0.3s;
-        background: linear-gradient(
-        90deg,
-        rgba(129, 230, 217, 1) 0%,
-        rgba(79, 209, 197, 1) 100%
-        );
+        background-color: #6aafe6;
+        color: #ffffff;
         cursor: pointer;
       }
       button:hover {
@@ -68,7 +65,7 @@
         width: 30px;
         height: 30px;
         border-radius: 100%;
-        border: 6px solid #00ffcb;
+        border: 6px solid #ffffff;
         position: absolute;
         z-index: -1;
         top: 50%;
@@ -163,7 +160,7 @@
             <p>RSA-512</p>
 
               <details>
-                <summary>python code</summary>
+                <summary>sage code</summary>
                 <br/>
                 <button id="rsaBtn">Copy!</button>
                 <div id="rsaCode">
@@ -266,8 +263,8 @@
 
     </div>
 
-    <br/><br/><br/><br/><br/><br/>
-    <br/><br/><br/><br/><br/><br/>
+    <br/><br/><br/><br/><br/><br/><br/>
+    <br/><br/><br/><br/><br/><br/><br/>
 
     <%-include('../partials/footer.ejs')%>
   </body>
