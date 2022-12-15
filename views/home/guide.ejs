@@ -89,7 +89,9 @@
             <div class="card-body">
               <h5 class="card-title">공개키 탑재 가이드</h5>
               <p class="card-text">
+                <br/>
                 <span class="text">PQC 서명 알고리즘 탑재 가이드</span> 입니다.
+                <br/><br/><br/><br/>
               </p>
               <!-- 커스텀 버튼 생성하기-->
               <span data-toggle="collapse" href="#sig" aria-expanded="false" aria-controls="sig">
@@ -103,7 +105,9 @@
             <div class="card-body">
               <h5 class="card-title">공개키 탑재 가이드</h5>
               <p class="card-text">
+                <br/>
                 <span class="text">PQC KEM 탑재 가이드</span> 입니다.
+                <br/><br/><br/><br/>
               </p>
               <span data-toggle="collapse" href="#kem" aria-expanded="false" aria-controls="kem">
                 <button>&nbsp;gogo!&nbsp;</button>
@@ -122,7 +126,16 @@
           <h1 class="display-5">PQC 서명 알고리즘 탑재 가이드</h1>
           <hr class="my-4">
           <p class="lead">
-            입니다.
+            <span style="font-size: 25px;">인증서 발급 과정</span><br/><br/>
+            OpenSSL에서 SSL 인증서를 발급받는 과정은 다음과 같습니다.<br/>
+            &nbsp;&nbsp;1. 서명 알고리즘의 키 쌍을 생성<br/>
+            &nbsp;&nbsp;2. 키를 사용해 서버의 정보가 담긴 CSR 파일을 생성, 인증 기관(이하 CA)에 전송<br/>
+            &nbsp;&nbsp;3. CA에서 서명 및 인증서 발급, 서버로 전송<br/><br/>
+            일반적으로 서명을 할 때 RSA 알고리즘을 사용하기 때문에 위의 과정은 아래의 openssl 명령어로 이루어지게 됩니다.<br/>
+            (명령어 : 예시 : 설명)<br/><br/>
+            &nbsp;&nbsp;1. genrsa : openssl genrsa -out server.key 2048 : rsa 키 쌍 생성<br/>
+            &nbsp;&nbsp;2. req : openssl req -new -key server.key -out server.csr : 키를 사용해 CSR 파일 생성<br/>
+            &nbsp;&nbsp;3. x509 : openssl
           </p>
       
         </div>
@@ -130,9 +143,14 @@
 
 
       <div class="collapse" id="kem">
-        <p>
-          abcdefg2
-        </p>
+        <div class="jumbotron">
+          <h1 class="display-5">PQC KEM 탑재 가이드</h1>
+          <hr class="my-4">
+          <p class="lead">
+            abcdefg
+          </p>
+      
+        </div>
       </div>
 
 
