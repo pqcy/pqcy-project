@@ -91,7 +91,7 @@
               <p class="card-text">
                 <br/>
                 <span class="text">PQC 서명 알고리즘 탑재 가이드</span> 입니다.
-                <br/><br/><br/><br/>
+                <br/><br/>
               </p>
               <!-- 커스텀 버튼 생성하기-->
               <span data-toggle="collapse" href="#sig" aria-expanded="false" aria-controls="sig">
@@ -107,7 +107,7 @@
               <p class="card-text">
                 <br/>
                 <span class="text">PQC KEM 탑재 가이드</span> 입니다.
-                <br/><br/><br/><br/>
+                <br/><br/>
               </p>
               <span data-toggle="collapse" href="#kem" aria-expanded="false" aria-controls="kem">
                 <button>&nbsp;gogo!&nbsp;</button>
@@ -135,7 +135,28 @@
             (명령어 : 예시 : 설명)<br/><br/>
             &nbsp;&nbsp;1. genrsa : openssl genrsa -out server.key 2048 : rsa 키 쌍 생성<br/>
             &nbsp;&nbsp;2. req : openssl req -new -key server.key -out server.csr : 키를 사용해 CSR 파일 생성<br/>
-            &nbsp;&nbsp;3. x509 : openssl
+            &nbsp;&nbsp;3. x509 : openssl x509 -req -in server.csr -CA rootCA.crt -CAkey rootCA.key -CAcreateserial out server.crt : CA 키를 통한 서명 및 인증서 생성<br/><br/><br/>
+            <span style="font-size: 25px;">첫 번째 구현. PQC 알고리즘 함수</span><br/>
+            적용하고자 하는 PQC 알고리즘으로 구현할 함수는 다음 세 가지입니다.<br/><br/>
+            &nbsp;&nbsp;1. Key generate<br/>
+            &nbsp;&nbsp;2. Sign<br/>
+            &nbsp;&nbsp;3. Verify (SSL 통신에서 서버 인증을 위함)<br/><br/><br/>
+            <span style="font-size: 25px;">OpenSSL EVP 흐름 분석</span><br/>
+            OpenSSL에서는 암호화 함수를 총괄하는 EVP API를 제공합니다.
+            서명 암호 알고리즘도 이 EVP API를 이용해서 이루어집니다.
+            그 흐름을 도식화하면 다음과 같습니다.<br/><br/>
+            <img src="/images/guide/openssl-evp.png"><br/><br/>
+            EVP_PKEY_METHOD는 키를 만들기 위한 함수들을 가지고 있는 구조체입니다.
+            이 안에는 keygen이라는 함수 포인터도 있는데, 이 함수를 통해서 EVP_PKEY 구조체 안의 pkey.ptr에 특정 구조체의 포인터를 저장하게 됩니다.<br/>
+            그 구조체는 적용하고자 하는 알고리즘의 공개키, 비밀키, 그리고 keypair, sign, verify 함수 포인터들로 구성되어 있습니다.<br/>
+            이 때, method와 알고리즘의 구조체를 가져오기 위해 nid와 알고리즘의 이름을 사용하게 됩니다.<br/><br/><br/>
+            <span style="font-size: 25px;">두 번째 구현. OpenSSL 수정</span><br/>
+            따라서 OpenSSL 내에서 구현해야 할 부분은 다음과 같습니다.<br/><br/>
+            &nbsp;&nbsp;1. Method: EVP_PKEY_METHOD, EVP_PKEY_ASN1_METHOD<br/>
+            &nbsp;&nbsp;2. NID: NID_youralgorithm<br/>
+            &nbsp;&nbsp;3. Keygen()<br/>
+            &nbsp;&nbsp;4. 알고리즘 이름<br/><br/>
+            OpenSSL 내에서 이와 관련된 부분들을 선언 및 정의해야 합니다.<br/>
           </p>
       
         </div>
