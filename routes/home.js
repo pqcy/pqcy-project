@@ -20,6 +20,9 @@ router.get('/algorithm', function(req, res){
 router.get('/guide', function(req, res){
   res.render('home/guide');
 });
+router.get('/communication', function(req, res){
+  res.render('home/communication');
+});
 router.get('/community', function(req, res){
   res.render('home/community');
 });

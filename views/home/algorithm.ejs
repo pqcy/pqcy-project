@@ -4,9 +4,6 @@
     <%-include('../partials/head.ejs')%>
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
-      body {
-        font-family: 'Jua', sans-serif;
-      }
       /*
       @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap');
       body {
@@ -14,9 +11,48 @@
       }
       */
       #wrapper {
+        font-family: 'Jua', sans-serif;
         height: auto;
         min-height: 100%;
-        padding-bottom: 10px;
+        padding-bottom: 100px;
+      }
+      button {
+        position: relative;
+        border: none;
+        display: inline-block;
+        border-radius: 15px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        text-decoration: none;
+        transition: 0.25s;
+        background-color: #6aafe6;
+        color: #ffffff;
+      }
+      button:focus {
+        position: relative;
+        border: none;
+        outline: none;
+        display: inline-block;
+        border-radius: 15px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        text-decoration: none;
+        transition: 0.25s;
+        background-color: #ffffff;
+        color: black;
+      }
+      button:active {
+        position: relative;
+        border: none;
+        display: inline-block;
+        border-radius: 15px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        text-decoration: none;
+        transition: 0.25s;
+        background-color: #ffffff;
+        color: black;
+      }
+      .text {
+        border: 2px;
+        border-radius: 15px;
       }
     </style>
   </head>
@@ -26,7 +62,66 @@
     <div id="wrapper"> <!-- footer 설정용 -->
     <br/><br/><br/><br/>
       
-      양자내성암호 알고리즘
+    <section id="algorithm">
+      <div class="container" data-aos="fade-up">
+        <div data-toggle="collapse" href="#nist" aria-expanded="false" aria-controls="nist">
+          <header class="section-header" style="text-align: center;">
+            <br/><br/><br/>
+            <h3>NIST 양자내성암호 알고리즘</h3>
+          </header>
+        </div>
+        <div class="collapse" id="nist">
+          <hr class="my-4">
+          <div class="jumbotron">
+            <p class="lead">
+              <span style="font-size: 25px;">2022년 7월 NIST 선정된 알고리즘</span><br/><br/>
+              KEM/ENC 표준:
+              <span data-toggle="collapse" href="#kyber" aria-expanded="false" aria-controls="kyber">
+                <button>&nbsp;CRYSTALS-KYBER&nbsp;</button>
+              </span>
+              <div class="collapse" id="kyber">
+                <p class="text">
+                  [Lattice] CRYSTALS(Cryptographic Suite for Algorithmic Lattices) 알고리즘은 LWE(Learning With Error)라는 기반 문제를 활용한다.
+                </p>
+              </div>
+            </p>
+              <br/>
+            <p class="lead">
+              전자 서명 표준:
+              <span data-toggle="collapse" href="#dilithium" aria-expanded="false" aria-controls="dilithium">
+                <button>&nbsp;CRYSTALS-DILITHIUM&nbsp;</button>
+              </span>
+              <span data-toggle="collapse" href="#falcon" aria-expanded="false" aria-controls="falcon">
+                <button>&nbsp;FALCON&nbsp;</button>
+              </span>
+              <span data-toggle="collapse" href="#sphincs" aria-expanded="false" aria-controls="sphincs">
+                <button>&nbsp;SPHINCS+&nbsp;</button>
+              </span>
+              <div class="collapse" id="dilithium">
+                <p class="text">
+                  [Lattice] 모든 양자내성암호들 중 상대적으로 크기가 작은 서명을 생성하는 편이고 공개키와 개인키 또한 작은 편이다.
+                </p>
+              </div>
+              <div class="collapse" id="falcon">
+                <p class="text">
+                  [Lattice] Gaussian samling, 고속 푸리에 샘플 링을 사용하였다. Ring-LWE 문제를 활용하며 공개키와 서명의 크기가 모두 작은 편에 속한다.
+                </p>
+              </div>
+              <div class="collapse" id="sphincs">
+                <p class="text">
+                  [HASH-based stateless] 다른 서명 알고리즘처럼 Lattice(격자) 기반 연산에 의존하지 않고 기존의 해시함수들을 활용한 알고리즘으로 NIST에서 보수적인 선택지로 보고 있다.
+                </p>
+              </div>
+            </p>
+              <br/><br/>
+            <p class="lead">
+              추가로 진행하는 4 라운드 후보: KEM/ENC 부문에서 CRYSTALS-KYBER 알고리즘만 선정되었기 때문에 추가로 4 라운드를 진행합니다.<br/><br/>
+              후보 알고리즘: Classic-McEliece, BIKE, HQC, SIKE<br/>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
     </div>
 
