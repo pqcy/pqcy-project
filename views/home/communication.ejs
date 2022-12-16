@@ -14,7 +14,14 @@
         font-family: 'Jua', sans-serif;
         height: auto;
         min-height: 100%;
-        padding-bottom: 100px;
+        padding-bottom: 500px;
+      }
+      .text {
+        text-decoration-color: black;
+        color: #6aafe6;
+      }
+      a {
+        color: rgb(59, 59, 255);
       }
     </style>
   </head>
@@ -22,8 +29,39 @@
     <%-include('../partials/nav.ejs')%>
 
     <div id="wrapper"> <!-- footer 설정용 -->
-    <br/><br/><br/><br/>
-      
+    <br/><br/><br/>
+
+    <div class="container" data-aos="fade-up">
+        <header class="section-header" style="text-align: center;">
+          <br/><br/><br/>
+          <h2>
+            <a href="https://github.com/pqcy/pqc-app" target="_blank">
+                <!-- 이 부분에 깃허브 아이콘 -->
+                <img src="/images/github.png" width="50px" height="50px">
+                &nbsp;PQC 채팅 프로그램 다운로드 링크(GITHUB)
+            </a>
+          </h2>
+          <br/>
+          <h2>
+            <a href="https://gitlab.com/gilgil/pqc-vpn" target="_blank">
+                <!-- 이부분에 깃랩 아이콘 -->
+                <img src="/images/gitlab.png" width="50px" height="50px">
+                &nbsp;PQC VPN 다운로드 링크(GITLAB)
+            </a>
+          </h2>
+          <br/><br/>
+          <p style="font-size: 20px;">
+            <span class="text">CRYSTALS - Kyber</span> 양자내성알고리즘이 적용된 Chatting 프로그램과 VPN 을 사용해 보실 수 있습니다.
+          </p>
+          <br/>
+          <!-- chatting -->
+          <img src="/images/pqc-chat.png" width="450px" height="500px">
+          &nbsp;&nbsp;
+          <!-- VPN -->
+          <img src="/images/pqc-vpn.jpeg" width="450px" height="500px">
+        </header>
+    </div>
+
 
     </div>
 
